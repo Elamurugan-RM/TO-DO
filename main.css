@@ -6,32 +6,31 @@
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
 }
+
 .container {
-/*   since the to do list box overflow items when more items are added this code will remove the overflowing issue */
-  overflow: auto;
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(135deg, #153677, #4e085f);
-  padding: 10px;
+  padding: 20px;
+  overflow: auto;
 }
+
 .todo {
   width: 100%;
   background: white;
-  max-width: 540px;
-  margin: 100px auto 20px;
-  padding: 40px 30px 70px;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 40px 30px;
   border-radius: 10px;
 }
+
 .todo h2 {
   color: #002765;
   display: flex;
   align-items: center;
   margin-bottom: 20px;
 }
-.todo h2 img {
-  width: 30px;
-  margin-left: 10px;
-}
+
 .row {
   display: flex;
   align-items: center;
@@ -41,14 +40,16 @@
   padding-left: 20px;
   margin-bottom: 25px;
 }
-.row input {
+
+.row input[type="text"], .row input[type="date"] {
   flex: 1;
   border: none;
   outline: none;
   background: transparent;
   padding: 10px;
-  font-weight: 14px;
+  font-size: 14px;
 }
+
 .row button {
   border: none;
   outline: none;
@@ -59,67 +60,94 @@
   cursor: pointer;
   border-radius: 40px;
 }
-ul li {
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.day {
+  background: #edeef0;
+  padding: 10px;
+  border-radius: 10px;
+  min-height: 150px;
+}
+
+.day h3 {
+  text-align: center;
+  color: #002765;
+  margin-bottom: 10px;
+}
+
+ul {
   list-style: none;
+  padding: 0;
+}
+
+ul li {
   font-size: 17px;
-  padding: 12px 8px 12px 50px;
-  user-select: none;
-  cursor: pointer;
-  position: relative;
+  padding: 10px;
+  background: white;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-ul li::before {
-  content: "";
-  position: absolute;
-  height: 28px;
-  width: 28px;
-  border-radius: 50%;
-  background-image: url(images/unchecked.png);
-  background-size: cover;
-  background-position: center;
-  top: 12px;
-  left: 8px;
-}
+
 ul li.checked {
   color: #555;
   text-decoration: line-through;
 }
-ul li.checked::before {
-  background-image: url(images/checked.png);
-}
+
 ul li span {
-  position: absolute;
-  right: 0;
-  top: 5px;
-  width: 40px;
-  height: 40px;
-  font-size: 22px;
-  color: #555;
-  line-height: 40px;
-  text-align: center;
-  border-radius: 50%;
+  cursor: pointer;
+  color: red;
+  margin-left: 10px;
 }
-ul li span:hover {
-  background: #edeef0;
+/* Add category-specific styles */
+.category {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 12px;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+.category {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 5px;
+  margin-right: 5px;
 }
 
-/*code added to make the complete website responsive to different screen sizes  */
+
+.academic {
+  background-color: #007bff;
+  color: white;
+}
+
+.placement {
+  background-color: #28a745;
+  color: white;
+}
+
+.self-health {
+  background-color: #ffc107;
+  color: black;
+}
+
+
+/* Responsive Design */
 @media screen and (max-width: 768px) {
-  .todo {
-    margin: 50px auto 20px;
-    padding: 30px;
+  .calendar {
+    grid-template-columns: repeat(2, 1fr);
   }
-  .row {
-    padding-left: 10px;
-    margin-bottom: 20px;
-  }
-  .row input {
-    padding: 8px;
-  }
-  .row button {
-    padding: 12px 30px;
-    font-size: 14px;
-  }
-  ul li {
-    font-size: 16px;
+}
+
+@media screen and (max-width: 480px) {
+  .calendar {
+    grid-template-columns: 1fr;
   }
 }
