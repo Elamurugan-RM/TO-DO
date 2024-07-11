@@ -41,7 +41,8 @@
   margin-bottom: 25px;
 }
 
-.row input[type="text"], .row input[type="date"] {
+.row input[type="text"],
+.row input[type="date"] {
   flex: 1;
   border: none;
   outline: none;
@@ -106,14 +107,7 @@ ul li span {
   color: red;
   margin-left: 10px;
 }
-/* Add category-specific styles */
-.category {
-  display: inline-block;
-  padding: 2px 8px;
-  font-size: 12px;
-  border-radius: 3px;
-  margin-right: 5px;
-}
+
 .category {
   display: inline-block;
   padding: 5px 10px;
@@ -121,7 +115,6 @@ ul li span {
   border-radius: 5px;
   margin-right: 5px;
 }
-
 
 .academic {
   background-color: #007bff;
@@ -137,7 +130,6 @@ ul li span {
   background-color: #ffc107;
   color: black;
 }
-
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
