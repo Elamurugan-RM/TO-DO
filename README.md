@@ -17,6 +17,7 @@ The To-Do Application is a web-based task management tool that allows users to c
 - **CSS**: Styling of the application
 - **JavaScript**: Functionality and interactivity
 - **Selenium**: Automated testing of the application
+- **MongoDB**:Storage of the Data
 
 ## Getting Started
 
@@ -26,20 +27,23 @@ The To-Do Application is a web-based task management tool that allows users to c
 - Local web server (optional for local file access issues)
 - Java Development Kit (JDK) if running automated tests
 - Selenium WebDriver for automated tests
+- MongoDB for database Storage
 
 ### Installation
 
 1. **Clone the Repository**
 
-   \`\`\`sh
-   git clone https://github.com/your-username/to-do-application.git
-   cd to-do-application
-   \`\`\`
+   ```sh
+   git clone https://github.com/Elamurugan-RM/TO-DO.git
+   cd TO-DO
+   ```
 
 2. **Open the Application**
 
-   Open \`index.html\` in your web browser to view the landing page and start adding tasks.
-
+   ```sh
+   \index.html\
+   ```
+   
 ### Running Automated Tests
 
 1. **Install WebDriver and Set Paths**
@@ -50,10 +54,10 @@ The To-Do Application is a web-based task management tool that allows users to c
 
    Compile and run the provided Java test file to perform automated testing of the application.
 
-   \`\`\`sh
+   ```sh
    javac update_test2.java
    java update_test2
-   \`\`\`
+   ```
 
 ## Usage
 
@@ -76,7 +80,7 @@ The To-Do Application is a web-based task management tool that allows users to c
 
 ## Screenshots
 ### Calendar View
-![output](screenshots/calendar_view.png)
+![output](calendarview.png)
 
 ## Contributing
 
