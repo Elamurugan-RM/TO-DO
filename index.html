@@ -12,7 +12,7 @@
       <h2>To-Do List</h2>
       <div class="row">
         <input type="text" id="input-box" placeholder="Add your task">
-        <input type="date" id="due-date">
+        <input type="text" id="due-date" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}">
         <select id="category">
           <option value="academic">Academic</option>
           <option value="placement">Placement</option>
@@ -26,5 +26,15 @@
     </div>
   </div>
   <script src="main.js"></script>
+  <script>
+    document.getElementById('due-date').addEventListener('input', function (e) {
+      const datePattern = /^\d{4}-\d{2}-\d{2}$/;
+      if (!datePattern.test(e.target.value)) {
+        e.target.setCustomValidity('Please enter the date in YYYY-MM-DD format.');
+      } else {
+        e.target.setCustomValidity('');
+      }
+    });
+  </script>
 </body>
 </html>
