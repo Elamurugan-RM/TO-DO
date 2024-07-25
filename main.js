@@ -72,14 +72,14 @@ function appendTaskToDOM(task) {
   const dayElement = document.getElementById(dayId);
 
   if (!dayElement) {
-    alert("Selected date is not within the displayed month.");
+    console.error(`Day element with ID ${dayId} not found. Task date may not be within the displayed month.`);
     return;
   }
 
   const taskElement = document.createElement("li");
   taskElement.setAttribute('id', task._id);
   taskElement.className = task.completed ? 'checked' : '';
-  taskElement.innerHTML = `<span class="category ${task.category}">${task.category}</span> ${task.text} <span onclick="removeTask('${task._id}')">&#x2716;</span>`;
+  taskElement.innerHTML = `<span class="category ${task.category}">${task.category}</span> ${task.text} <span class="remove-task" onclick="removeTask('${task._id}')">&#x2716;</span>`;
   taskElement.addEventListener('click', () => toggleTaskCompletion(task._id, !task.completed));
   dayElement.querySelector('ul').appendChild(taskElement);
 }
