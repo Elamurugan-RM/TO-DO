@@ -64,25 +64,17 @@ app.delete('/tasks/:id', async (req, res) => {
 });
 
 app.put('/tasks/:id', async (req, res) => {
-    try {
-      console.log('Updating task with ID:', req.params.id, 'with data:', req.body);
-  
-      const { completed } = req.body; // Extract 'completed' from request body
-      const updatedTask = await Task.findByIdAndUpdate(req.params.id, { completed }, { new: true });
-  
-      console.log('Updated task:', updatedTask);
-  
-      if (!updatedTask) {
-        return res.status(404).json({ message: 'Task not found' });
-      }
-  
-      res.json(updatedTask); // Return updated task
-    } catch (error) {
-      console.error('Error updating task:', error);
-      res.status(500).json({ message: 'Error updating task', error });
+  try {
+    const { completed } = req.body;
+    const updatedTask = await Task.findByIdAndUpdate(req.params.id, { completed }, { new: true });
+    if (!updatedTask) {
+      return res.status(404).json({ message: 'Task not found' });
     }
-  });
-  
+    res.json(updatedTask);
+  } catch (error) {
+    res.status(500).json({ message: 'Error updating task', error });
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
